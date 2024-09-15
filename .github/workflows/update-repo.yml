@@ -12,7 +12,7 @@ jobs:
       upstream: AleixoLucas42/duplicati-prometheus-exporter
     
   update-docker-image:
-    needs: update-repo
-    if: ${{needs.update-repo.outputs.new-commits == 'true'}}
     uses: ./.github/workflows/docker.yml
+    needs: update-repo
+    if: ${{ needs.update-repo.outputs.new-commits == 'true' }}
     secrets: inherit

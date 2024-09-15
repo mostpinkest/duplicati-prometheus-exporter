@@ -12,20 +12,18 @@ concurrency:
 
 jobs:
   publish:
-    runs-on: ubuntu-latest
+    uses: "logicer16/workflows/.github/workflows/docker.yml@main"
     permissions:
       contents: read
-    uses: "logicer16/workflows/.github/workflows/docker.yml@main"
     with:
       dockerhub-username: ${{ secrets.DOCKERHUB_USERNAME }}
     secrets:
       dockerhub-token: ${{ secrets.DOCKERHUB_TOKEN }}
     
   dockerhub-description:
-    runs-on: ubuntu-latest
+    uses: "logicer16/workflows/.github/workflows/dockerhub-description.yml@main"
     needs:
       - publish
-    uses: "logicer16/workflows/.github/workflows/dockerhub-description.yml@main"
     permissions:
       contents: read
     with:
