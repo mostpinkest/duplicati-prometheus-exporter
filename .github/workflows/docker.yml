@@ -1,0 +1,34 @@
+name: Docker
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+  workflow_call:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    uses: "logicer16/workflows/.github/workflows/docker.yml@main"
+    with:
+      dockerhub-username: ${{ secrets.DOCKERHUB_USERNAME }}
+    secrets:
+      dockerhub-token: ${{ secrets.DOCKERHUB_TOKEN }}
+    
+  dockerhub-description:
+    runs-on: ubuntu-latest
+    needs:
+      - publish
+    uses: "logicer16/workflows/.github/workflows/dockerhub-description.yml@main"
+    permissions:
+      contents: read
+    with:
+      dockerhub-username: ${{ secrets.DOCKERHUB_USERNAME }}
+    secrets:
+      dockerhub-token: ${{ secrets.DOCKERHUB_TOKEN }}
