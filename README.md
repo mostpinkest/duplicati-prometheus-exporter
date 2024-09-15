@@ -37,27 +37,32 @@ scrape_configs:
 ## Run duplicati prometheus exporter using docker
 Docker is the better way to execute this application. If you prefer, you can build your own
 container image based on my [Dockerfile](Dockerfile) to change anythong you want and store your
-container artifact where you need; but you also can use my docker image that is on my [dockerhub](https://hub.docker.com/repository/docker/aleixolucas/duplicati-prometheus-exporter/general)
+container artifact where you need; but you also can use my docker image that is on my [dockerhub](https://hub.docker.com/repository/docker/logicer16/duplicati-prometheus-exporter/general)
 
 - Running docker image
-> docker run -p 5000:5000 aleixolucas/duplicati-prometheus-exporter
+> docker run -p 5000:5000 logicer16/duplicati-prometheus-exporter
 
-- After container run successfully you can access http://127.0.0.1/metrics (Change localhost ip if necessary).
+- After container run successfully you can access http://localhost:5000/metrics.
 
 ## Running with python 
 For this you have to install python3.9 or higher. You can change service port by setting a environment variable `DUPLICATI_EXPORTER_PORT=PORT`, default is 5000.
 
-- In repository root, create an python venv
-> python -m venv .venv
-- Then activate this venv
+```bash
+# In repository root, create an python venv
+python -m venv .venv
 
-> source .venv/bin/activate # Linux
+# Then activate this venv
+# Linux
+$ source .venv/bin/activate 
+# Window
+> C:\ .venv\Scripts\activate.bat
 
-> C:\ .venv\Scripts\activate.bat # Window
-- Install python packages required
-> pip install -r requirements.txt
-- Finally
-> python duplicat-prometheus-exporter
+# Install python packages required
+$ pip install -r requirements.txt
+
+# Finally
+$ python duplicat-prometheus-exporter
+```
 
 ## DEBUG
 Debug can be done by using LOG_LEVEL environment variable, supported values:
