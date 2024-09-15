@@ -12,15 +12,16 @@ On your Duplicati backup interface or cli, you can configure in advanced options
 ```
 
 ## Setup demo
-For this demo is needed to be installed docker in your machine. How demo is setting up duplicati prometheus exporter app, prometheus and grafana, besides that, there is a configuration container that configure grafana datasource and dashboard, after that, this container send an example post to duplicati example exporter, you can see the configuration on [docker compose file](docker-compose.yml).
+For this demo is needed to be installed docker in your machine. The demo sets up the duplicati exporter, prometheus and grafana. There is also a configuration container that configures grafana's datasource and dashboard, and then send an example post to the duplicati exporter. You can see the configuration in the [docker compose file](docker-compose.yml). 
 - In repository root, run:
-> docker compose up --force-recreate --build --always-recreate-deps
+```sh
+docker compose up --force-recreate --build --always-recreate-deps
+```
 - After ~15 seconds the address `http://localhost:3000` should be ready. Go to [Grafana in your localhost](http://localhost:3000/d/ddmio2e27ctmod/duplicati-backup-dashboard)
-> http://localhost:3000/d/ddmio2e27ctmod/duplicati-backup-dashboard
 
 ![Grafana dashboard example](https://github.com/Logicer16/duplicati-prometheus-exporter/raw/main/docs/static/grafan-dash.png)
 
-~This dashboard can change while i'm developing and improving.
+~This dashboard can change while i'm developing and improving. It's current vesion can be found [here](https://github.com/Logicer16/duplicati-prometheus-exporter/tree/main/config/grafana).
 
 ## Prometheus scrap config example
 ```yaml
