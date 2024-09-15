@@ -18,7 +18,7 @@ For this demo is needed to be installed docker in your machine. How demo is sett
 - After ~15 seconds the address `http://localhost:3000` should be ready. Go to [Grafana in your localhost](http://localhost:3000/d/ddmio2e27ctmod/duplicati-backup-dashboard)
 > http://localhost:3000/d/ddmio2e27ctmod/duplicati-backup-dashboard
 
-![Grafana dashboard example](docs/static/grafan-dash.png)
+![Grafana dashboard example](https://github.com/Logicer16/duplicati-prometheus-exporter/raw/main/docs/static/grafan-dash.png)
 
 ~This dashboard can change while i'm developing and improving.
 
@@ -40,7 +40,9 @@ container image based on my [Dockerfile](Dockerfile) to change anythong you want
 container artifact where you need; but you also can use my docker image that is on my [dockerhub](https://hub.docker.com/repository/docker/logicer16/duplicati-prometheus-exporter/general)
 
 - Running docker image
-> docker run -p 5000:5000 logicer16/duplicati-prometheus-exporter
+```sh
+docker run -p 5000:5000 logicer16/duplicati-prometheus-exporter
+```
 
 - After container run successfully you can access http://localhost:5000/metrics.
 
