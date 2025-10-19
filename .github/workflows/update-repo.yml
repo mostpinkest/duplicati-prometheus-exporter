@@ -1,4 +1,4 @@
-name: Update Repo 
+name: Update Repo
 
 on:
   workflow_dispatch:
@@ -7,12 +7,12 @@ on:
 
 jobs:
   update-repo:
-    uses: logicer16/workflows/.github/workflows/update-repo.yml@main
+    uses: mostpinkest/workflows/.github/workflows/update-repo.yml@main
     with:
       upstream: AleixoLucas42/duplicati-prometheus-exporter
     
   update-docker-image:
-    uses: ./.github/workflows/docker.yml
     needs: update-repo
     if: ${{ needs.update-repo.outputs.new-commits == 'true' }}
+    uses: ./.github/workflows/docker-publish.yml
     secrets: inherit

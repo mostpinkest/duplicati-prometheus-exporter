@@ -8,7 +8,7 @@ setup(
     description="A simple prometheus exporter for Duplicati backup",
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
-    url="https://github.com/Logicer16/duplicati-promethes-exporter",
+    url="https://github.com/mostpinkest/duplicati-promethes-exporter",
     packages=find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
@@ -24,7 +24,7 @@ setup(
     ],
     include_package_data=True,
     project_urls={
-        "Bug Reports": "https://github.com/Logicer16/duplicati-promethes-exporter/issues",
-        "Source": "https://github.com/Logicer16/duplicati-promethes-exporter",
+        "Bug Reports": "https://github.com/mostpinkest/duplicati-promethes-exporter/issues",
+        "Source": "https://github.com/mostpinkest/duplicati-promethes-exporter",
     },
 )

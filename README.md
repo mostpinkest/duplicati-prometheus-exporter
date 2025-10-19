@@ -19,9 +19,9 @@ docker compose up --force-recreate --build --always-recreate-deps
 ```
 - After ~15 seconds the address `http://localhost:3000` should be ready. Go to [Grafana in your localhost](http://localhost:3000/d/ddmio2e27ctmod/duplicati-backup-dashboard)
 
-![Grafana dashboard example](https://github.com/Logicer16/duplicati-prometheus-exporter/raw/main/docs/static/grafan-dash.png)
+![Grafana dashboard example](https://github.com/mostpinkest/duplicati-prometheus-exporter/raw/main/docs/static/grafan-dash.png)
 
-~This dashboard can change while i'm developing and improving. It's current vesion can be found [here](https://github.com/Logicer16/duplicati-prometheus-exporter/tree/main/config/grafana).
+~This dashboard can change while i'm developing and improving. It's current vesion can be found [here](https://github.com/mostpinkest/duplicati-prometheus-exporter/tree/main/config/grafana).
 
 ## Prometheus scrap config example
 ```yaml
@@ -38,11 +38,11 @@ scrape_configs:
 ## Run duplicati prometheus exporter using docker
 Docker is the better way to execute this application. If you prefer, you can build your own
 container image based on my [Dockerfile](Dockerfile) to change anythong you want and store your
-container artifact where you need; but you also can use my docker image that is on my [dockerhub](https://hub.docker.com/repository/docker/logicer16/duplicati-prometheus-exporter/general)
+container artifact where you need; but you also can use my docker image that is on my [dockerhub](https://hub.docker.com/repository/docker/mostpinkest/duplicati-prometheus-exporter/general)
 
 - Running docker image
 ```sh
-docker run -p 5000:5000 logicer16/duplicati-prometheus-exporter
+docker run -p 5000:5000 mostpinkest/duplicati-prometheus-exporter
 ```
 
 - After container run successfully you can access http://localhost:5000/metrics.
